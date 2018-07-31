@@ -1,0 +1,17 @@
+{
+  "name": "chapter-02",
+  "version": "0.0.1",
+  "scripts": {
+    "postinstall": "tsc -p ./",
+    "watch": "tsc -w -p ./",
+    "debug": "nodemon --watch ./dist --inspect=0.0.0.0:5858 --nolazy ./dist/index.js",
+    "docker-debug": "docker-compose up",
+    "start": "node ./dist/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.50",
+    "typescript": "^2.3.2",
+    "nodemon": "^1.11.0"
+  },
+  "main": "./dist/index.js"
+}
