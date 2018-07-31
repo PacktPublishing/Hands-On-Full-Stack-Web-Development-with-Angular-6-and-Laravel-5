@@ -1,0 +1,31 @@
+<main role="main">
+  <div class="container">
+    <form class="form-signin" (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+      <div class="text-center mb-4">
+        <h1 class="h3 mt-3 mb-3 font-weight-normal">Welcome</h1>
+        <p>Motorcycle builders and road lovers</p>
+        <hr>
+      </div>
+      <div class="form-group" [ngClass]="{ 'has-error': !email.valid && (email.dirty || email.touched) }">
+        <label for="email">Email address</label>
+        <input type="email" [(ngModel)]="user.email"  name="email" #email="ngModel" required class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="form-feedback">
+          <div *ngIf="email?.errors.required">Email is required</div>
+          <div *ngIf="email?.errors.email">Email must be a valid email address</div>
+        </div>
+      </div>
+      <div class="form-group" [ngClass]="{ 'has-error': !password.valid && (password.dirty || password.touched) }">
+        <label for="password">Password</label>
+        <input type="password" [(ngModel)]="user.password" name="password" #password="ngModel" required minlength="6" class="form-control" id="password" placeholder="Password">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="form-feedback">
+          <div *ngIf="password?.errors.required">Password is required</div>
+          <div *ngIf="password?.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+      </div>
+      <div  *ngIf="error" class="alert alert-danger" role="alert">
+          Ops: {{ error.error }}
+      </div>
+      <button [disabled]="!loginForm.valid" class="btn btn-lg btn-primary btn-block mt-5" type="submit">Login</button>
+    </form>
+  </div>
+</main>

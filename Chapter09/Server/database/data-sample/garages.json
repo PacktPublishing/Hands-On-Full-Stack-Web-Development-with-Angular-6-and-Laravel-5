@@ -1,0 +1,9 @@
+[{
+	"id": 1,
+	"name": "Martin Smith",
+	"customer_level": 8
+}, {
+	"id": 2,
+	"name": "Collin James",
+	"customer_level": 9
+}]
