@@ -1,0 +1,20 @@
+
+[{
+	"id": 1,
+	"type": "Handlebars",
+	"name": "Apes Hanger 16 ",
+	"company": "TC Bros",
+	"bike_id": 2
+},{
+	"id": 2,
+	"type": "Seat",
+	"name": "Challenger",
+	"company": "Biltwell Inc",
+	"bike_id": 3
+},{
+	"id": 3,
+	"type": "Exhaust",
+	"name": "Side Shots",
+	"company": "Vance and Hines",
+	"bike_id": 3
+}]

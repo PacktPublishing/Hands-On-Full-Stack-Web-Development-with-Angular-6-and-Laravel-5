@@ -1,0 +1,26 @@
+[{
+	"id": 1,
+	"name": "Diamond Atelier",
+	"description": "Diamond Atelier was founded by two fellow riders who grew tired of the same played-out custom bike look and feel they and their friends had grown accustomed to witnessing.",
+	"location": "Munich, Germany"
+},{
+	"id": 2,
+	"name": "Deus Ex Machina's",
+	"description": "Established in Australia back in 2006. And what started on the East Coast of Australia has spread across the world, building an empire of cafe racers.",
+	"location": "Sydney, Australia"
+},{
+	"id": 3,
+	"name": "Rough Crafts",
+	"description": "A true testament to how far the custom bike world has come since the introduction of motorcycles in the early 20th century, Taiwan-based Rough Crafts is a design powerhouse.",
+	"location": "Taiwan"
+},{
+	"id": 4,
+	"name": "Roldand Sands",
+	"description": "Is an American motorcycle racer and designer of custom high-performance motorcycles.",
+	"location": "California, USA"
+},{
+	"id": 5,
+	"name": "Chopper Dave",
+	"description": "An artist, a biker, a builder and an innovator among other things, but what it comes down to is David “ChopperDave” Freston is a motorcycle builder and fabricator that is passionate about motorcycles",
+	"location": "California, USA"
+}]

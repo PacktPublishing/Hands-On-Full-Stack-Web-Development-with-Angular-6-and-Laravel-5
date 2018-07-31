@@ -1,0 +1,35 @@
+version: "3.1"
+services:
+
+    mysql:
+      image: mysql:5.7
+      container_name: chapter-08-mysql
+      working_dir: /application
+      volumes:
+        - .:/application
+        - ./storage-db:/var/lib/mysql
+      environment:
+        - MYSQL_ROOT_PASSWORD=123456
+        - MYSQL_DATABASE=chapter-08
+        - MYSQL_USER=chapter-08
+        - MYSQL_PASSWORD=123456
+      ports:
+        - "8083:3306"
+
+    webserver:
+      image: nginx:alpine
+      container_name: chapter-08-webserver
+      working_dir: /application
+      volumes:
+          - .:/application
+          - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      ports:
+       - "8081:80"
+
+    php-fpm:
+      build: phpdocker/php-fpm
+      container_name: chapter-08-php-fpm
+      working_dir: /application
+      volumes:
+        - ./Server:/application
+        - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini
