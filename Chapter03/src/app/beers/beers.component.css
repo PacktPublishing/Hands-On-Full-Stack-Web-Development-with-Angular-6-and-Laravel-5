@@ -1,0 +1,25 @@
+body {
+  margin: 40px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  grid-gap: 10px;
+  background-color: #fff;
+  color: #444;
+}
+
+.col {
+  background-color: #d1d1d1;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+figure {
+  text-align: center;
+}
+
+img {
+  height:250px;
+}

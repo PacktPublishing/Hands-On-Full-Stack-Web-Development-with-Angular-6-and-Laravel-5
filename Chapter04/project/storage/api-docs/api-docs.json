@@ -1,0 +1,54 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Custom Bikes",
+        "contact": {
+            "name": "Developer Contact",
+            "url": "https://www.example.com"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8081",
+    "basePath": "",
+    "schemes": [
+        "http"
+    ],
+    "paths": {},
+    "definitions": {
+        "Bike": {
+            "required": [
+                "make",
+                "model",
+                "year",
+                "mods"
+            ],
+            "properties": {
+                "make": {
+                    "description": "Company name",
+                    "type": "string",
+                    "example": "Harley Davidson, Honda, Yamaha"
+                },
+                "model": {
+                    "description": "Motorcycle model",
+                    "type": "string",
+                    "example": "Xl1200, Shadow ACE, V-Star"
+                },
+                "year": {
+                    "description": "Fabrication year",
+                    "type": "string",
+                    "example": "2009, 2008, 2007"
+                },
+                "mods": {
+                    "description": "Motorcycle description of modifications",
+                    "type": "string",
+                    "example": "New exhaust system"
+                },
+                "picture": {
+                    "description": "Bike image URL",
+                    "type": "string",
+                    "example": "http://www.sample.com/my.bike.jpg"
+                }
+            }
+        }
+    }
+}

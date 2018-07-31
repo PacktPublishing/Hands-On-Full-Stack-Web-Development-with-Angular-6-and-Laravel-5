@@ -1,0 +1,14 @@
+<p>
+  beers works!
+</p>
+<div class="row">
+  <div class="col" href="" *ngFor="let item of beersList">
+    <figure>
+      <img [src]="item.image_url" [alt]="item.name" />
+      <figcaption>
+        <h1>{{item.name}}</h1>
+        <p>{{item.tagline}}</p>
+      </figcaption>
+    </figure>
+  </div>
+</div>
