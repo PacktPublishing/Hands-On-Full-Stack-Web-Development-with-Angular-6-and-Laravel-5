@@ -1,0 +1,23 @@
+{
+    "extends": ["../tslint.json", "../node_modules/tslint-angular"],
+    "rules": {
+        "angular-whitespace": [true, "check-interpolation", "check-semicolon"],
+        "no-unused-variable": true,
+        "no-unused-css": true,
+        "banana-in-box": true,
+        "use-view-encapsulation": true,
+        "contextual-life-cycle": true,
+        "directive-selector": [
+            true,
+            "attribute",
+            "app",
+            "camelCase"
+        ],
+        "component-selector": [
+            true,
+            "element",
+            "app",
+            "kebab-case"
+        ]
+    }
+}

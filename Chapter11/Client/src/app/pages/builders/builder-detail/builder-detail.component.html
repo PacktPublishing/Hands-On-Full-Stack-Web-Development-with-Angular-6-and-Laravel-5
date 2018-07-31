@@ -1,0 +1,36 @@
+<main role="main">
+  <div class="py-5">
+    <div class="container">
+      <div *ngIf="isLoading" class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+      <div class="row" *ngIf="!isLoading">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ builder?.name }} </h5>
+              <p class="card-text">{{ builder?.description }} </p>
+            </div>
+            <div class="card-header">
+              <strong>Featured Bike</strong>:
+            </div>
+            <div class="card-img-top text-md-center">
+              <img src="{{ builder?.bike.picture }}" alt="" srcset="">
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Make: {{ builder?.bike.make }} |
+                <span class="text-secondary">Year: {{ builder?.bike.year }}</span>
+              </li>
+              <li class="list-group-item">Model: {{ builder?.bike.model }} </li>
+              <li class="list-group-item">Mods: {{ builder?.bike.mods }} </li>
+              <li class="list-group-item">
+                <a routerLink="/bikes/{{ builder?.bike['id'] }}" routerLinkActive="router-link-active" class="card-link">Bike Details</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

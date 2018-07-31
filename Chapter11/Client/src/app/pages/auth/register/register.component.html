@@ -1,0 +1,41 @@
+<main role="main">
+  <div class="container" >
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"  class="form-register" novalidate>
+      <div class="text-center mb-4">
+        <h1 class="h3 mt-3 mb-3 font-weight-normal">Welcome</h1>
+        <p>Motorcycle builders and road lovers</p>
+        <hr>
+      </div>
+      <div class="form-group" [ngClass]="{ 'has-error': !registerForm.get('name').valid && (registerForm.get('name').dirty || registerForm.get('name').touched) }">
+        <label for="name">Name</label>
+        <input type="name" formControlName="name" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter your name">
+        <div class="form-feedback"
+          *ngIf="registerForm.get('name').errors && (registerForm.get('name').dirty || registerForm.get('name').touched)">
+          <div *ngIf="registerForm.get('name').hasError('required')">Name is required</div>
+        </div>
+      </div>
+      <div class="form-group" [ngClass]="{ 'has-error': !registerForm.get('email').valid && (registerForm.get('email').dirty || registerForm.get('email').touched) }">
+        <label for="email">Email address</label>
+        <input type="email" formControlName="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+        <div class="form-feedback"
+          *ngIf="registerForm.get('email').errors && (registerForm.get('email').dirty || registerForm.get('email').touched)">
+          <div *ngIf="registerForm.get('email').hasError('required')">Email is required</div>
+          <div *ngIf="registerForm.get('email').hasError('email')">Email must be a valid email address</div>
+        </div>
+      </div>
+      <div class="form-group" [ngClass]="{ 'has-error': !registerForm.get('password').valid && (registerForm.get('password').dirty || registerForm.get('password').touched) }">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password"  class="form-control" id="password" placeholder="Password">
+        <div class="form-feedback"
+          *ngIf="registerForm.get('password').errors && (registerForm.get('password').dirty || registerForm.get('password').touched)">
+          <p *ngIf="registerForm.get('password').hasError('required')">Password is required</p>
+          <p *ngIf="registerForm.get('password').hasError('minlength')">Password must be 6 characters long, we need another {{ registerForm.get('password').errors['minlength'].requiredLength - registerForm.get('password').errors['minlength'].actualLength }} characters </p>
+        </div>
+      </div>
+      <div  *ngIf="error" class="alert alert-danger" role="alert">
+        Ops: {{ error }}
+      </div>
+      <button [disabled]="!registerForm.valid" class="btn btn-lg btn-primary btn-block mt-5" type="submit">Register</button>
+    </form>
+  </div>
+</main>

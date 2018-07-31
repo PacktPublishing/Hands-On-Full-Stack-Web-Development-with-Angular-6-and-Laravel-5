@@ -1,0 +1,95 @@
+<main role="main">
+  <div class="py-5">
+    <div class="container">
+      <div *ngIf="isLoading" class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+      <ngb-tabset type="pills" *ngIf="!isLoading">
+          <ngb-tab title="Bike Detail">
+            <ng-template ngbTabContent>
+              <br>
+              <div class="row">
+                <div class="col-md-4">
+                  <img class="card-img-top" src="{{ bike?.picture }}" alt="Card image cap">
+                </div>
+                <div class="col-md-8">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ bike?.model }} | {{ bike?.year }} | Ratings: {{ bike?.average_rating }}
+                        <span *ngIf="userVote">| Your Vote: {{ userVote }}</span>
+                      </h5>
+                      <p class="card-text">{{ bike?.mods }}</p>
+                    </div>
+                    <div *ngIf="bike?.builder" class="card-header">
+                      <strong>Builder</strong>:
+                      <a routerLink="/builders/{{bike?.builder['id']}}">{{ bike?.builder['name'] }}</a>
+                    </div>
+                    <div *ngIf="bike?.items" class="card-header">
+                      <strong>Featured items</strong>:
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li *ngFor="let item of bike?.items" class="list-group-item">
+                        <strong>Type</strong>: {{ item.type }} |
+                        <strong>Name</strong>: {{ item.name }} |
+                        <strong>Company</strong>: {{ item.company }}
+                      </li>
+                    </ul>
+                    <div class="card-body">
+                      <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item">Vote: </li>
+                        <li class="list-inline-item">
+                          <a (click)="onVote('1')" class="btn btn-outline-secondary">1</a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a (click)="onVote('2')" class="btn btn-outline-primary">2</a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a (click)="onVote('3')" class="btn btn-outline-success">3</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle *ngIf="checkBikeOwner()">Edit bike</ng-template>
+            <ng-template ngbTabContent>
+              <br>
+              <form (ngSubmit)="onSubmit(bikeAddForm)" #bikeAddForm="ngForm" name=bikeAddForm class="bg-light px-4 py-4">
+                <div class="form-group">
+                  <label for="make">Make</label>
+                  <input type="text" [(ngModel)]="bike.make"  name="make" class="form-control" id="make" placeholder="Enter make">
+                </div>
+                <div class="form-group">
+                  <label for="model">Model</label>
+                  <input type="text" [(ngModel)]="bike.model" name="model" class="form-control" id="model" placeholder="Enter model">
+                </div>
+                <div class="form-group">
+                  <label for="year">Year</label>
+                  <input type="text" [(ngModel)]="bike.year" name="year" class="form-control" id="year" placeholder="Enter year, ex: 1990, 2000">
+                </div>
+                <div class="form-group">
+                  <label for="mods">Mods</label>
+                  <textarea type="text" [(ngModel)]="bike.mods" name="mods" class="form-control" id="mods" placeholder="Enter modifications"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="picture">Picture</label>
+                  <input type="text" [(ngModel)]="bike.picture" name="picture" class="form-control" id="picture" placeholder="Enter picture url">
+                </div>
+                <div class="form-group">
+                  <label for="inputState">Builder</label>
+                  <select [(ngModel)]="bike.builder.id" name="builder_id" class="form-control">
+                    <option *ngFor="let builder of builders" [(ngValue)]="builder['id']">{{ builder['name'] }}</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+    </div>
+  </div>
+</main>

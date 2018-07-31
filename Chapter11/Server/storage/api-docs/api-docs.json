@@ -1,0 +1,780 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Custom Bikes",
+        "contact": {
+            "name": "Developer Contact",
+            "url": "https://www.example.com"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8081",
+    "basePath": "",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Create new User",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Json format",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Success: A Newly Created User",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    },
+                    "200": {
+                        "description": "Success: operation Successfully"
+                    },
+                    "401": {
+                        "description": "Refused: Unauthenticated"
+                    },
+                    "422": {
+                        "description": "Missing mandatory field"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "loggin an user",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Json format",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: operation Successfully"
+                    },
+                    "401": {
+                        "description": "Refused: Unauthenticated"
+                    },
+                    "422": {
+                        "description": "Missing mandatory field"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "logout an user",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Json format",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: operation Successfully"
+                    },
+                    "401": {
+                        "description": "Refused: Unauthenticated"
+                    },
+                    "422": {
+                        "description": "Missing mandatory field"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/bikes": {
+            "get": {
+                "tags": [
+                    "Bikes"
+                ],
+                "summary": "List Bikes",
+                "responses": {
+                    "200": {
+                        "description": "Success: List all Bikes",
+                        "schema": {
+                            "$ref": "#/definitions/Bike"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Bikes"
+                ],
+                "summary": "Create Bike",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Json format",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Bike"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Success: A Newly Created Bike",
+                        "schema": {
+                            "$ref": "#/definitions/Bike"
+                        }
+                    },
+                    "422": {
+                        "description": "Missing mandatory field"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/bikes/{id}": {
+            "get": {
+                "tags": [
+                    "Bikes"
+                ],
+                "summary": "Get Bike by Id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Display the specified bike by id.",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Return the Bike",
+                        "schema": {
+                            "$ref": "#/definitions/Bike"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Bikes"
+                ],
+                "summary": "Update Bike",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Update the specified bike by id.",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Json format",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Bike"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Return the Bike updated",
+                        "schema": {
+                            "$ref": "#/definitions/Bike"
+                        }
+                    },
+                    "422": {
+                        "description": "Missing mandatory field"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Bikes"
+                ],
+                "summary": "Delete bike",
+                "description": "Delete the specified bike by id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Bike id to delete",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "204": {
+                        "description": "Success: successful deleted"
+                    }
+                }
+            }
+        },
+        "/api/builders": {
+            "get": {
+                "tags": [
+                    "Builders"
+                ],
+                "summary": "List Builders",
+                "responses": {
+                    "200": {
+                        "description": "Success: List all Builders",
+                        "schema": {
+                            "$ref": "#/definitions/Builder"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Builders"
+                ],
+                "summary": "Create Builder",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Json format",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Builder"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Success: A Newly Created Builder",
+                        "schema": {
+                            "$ref": "#/definitions/Builder"
+                        }
+                    },
+                    "422": {
+                        "description": "Missing mandatory field"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "405": {
+                        "description": "Invalid HTTP Method"
+                    }
+                }
+            }
+        },
+        "/api/builders/{id}": {
+            "get": {
+                "tags": [
+                    "Builders"
+                ],
+                "summary": "Get Builder by Id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Display the specified Builder by id.",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Return the Builder",
+                        "schema": {
+                            "$ref": "#/definitions/Builder"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "405": {
+                        "description": "Invalid HTTP Method"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Builders"
+                ],
+                "summary": "Update Builder",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Update the specified Builder by id.",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Json format",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Builder"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Return the Builder updated",
+                        "schema": {
+                            "$ref": "#/definitions/Builder"
+                        }
+                    },
+                    "422": {
+                        "description": "Missing mandatory field"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "405": {
+                        "description": "Invalid HTTP Method"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Builders"
+                ],
+                "summary": "Delete Builder",
+                "description": "Delete the specified Builder by id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Builder id to delete",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "405": {
+                        "description": "Invalid HTTP Method"
+                    },
+                    "204": {
+                        "description": "Success: successful deleted"
+                    }
+                }
+            }
+        },
+        "/api/items": {
+            "get": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "List Items",
+                "responses": {
+                    "200": {
+                        "description": "Success: List all Items",
+                        "schema": {
+                            "$ref": "#/definitions/Item"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Create Item",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Json format",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Item"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Success: A Newly Created Item",
+                        "schema": {
+                            "$ref": "#/definitions/Item"
+                        }
+                    },
+                    "422": {
+                        "description": "Missing mandatory field"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/items/{id}": {
+            "get": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Get Item by Id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Display the specified Item by id.",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Return the Item",
+                        "schema": {
+                            "$ref": "#/definitions/Item"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Update Item",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Update the specified Item by id.",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Json format",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Item"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Return the Item updated",
+                        "schema": {
+                            "$ref": "#/definitions/Item"
+                        }
+                    },
+                    "422": {
+                        "description": "Missing mandatory field"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Delete Item",
+                "description": "Delete the specified Item by id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Item id to delete",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "204": {
+                        "description": "Success: successful deleted"
+                    }
+                }
+            }
+        },
+        "/api/bikes/{bike_id}/ratings": {
+            "post": {
+                "tags": [
+                    "Ratings"
+                ],
+                "summary": "rating a Bike",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Bike Id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Json format",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Rating"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Success: A Newly Created Rating",
+                        "schema": {
+                            "$ref": "#/definitions/Rating"
+                        }
+                    },
+                    "401": {
+                        "description": "Refused: Unauthenticated"
+                    },
+                    "422": {
+                        "description": "Missing mandatory field"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "405": {
+                        "description": "Invalid HTTP Method"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Bike": {
+            "required": [
+                "make",
+                "model",
+                "year",
+                "mods"
+            ],
+            "properties": {
+                "make": {
+                    "description": "Company name",
+                    "type": "string",
+                    "example": "Harley Davidson, Honda, Yamaha"
+                },
+                "model": {
+                    "description": "Motorcycle model",
+                    "type": "string",
+                    "example": "Xl1200, Shadow ACE, V-Star"
+                },
+                "year": {
+                    "description": "Fabrication year",
+                    "type": "string",
+                    "example": "2009, 2008, 2007"
+                },
+                "mods": {
+                    "description": "Motorcycle description of modifications",
+                    "type": "string",
+                    "example": "New exhaust system"
+                },
+                "picture": {
+                    "description": "Bike image URL",
+                    "type": "string",
+                    "example": "http://www.sample.com/my.bike.jpg"
+                },
+                "builder_id": {
+                    "description": "Association with: builder_id",
+                    "type": "integer",
+                    "example": "1"
+                }
+            }
+        },
+        "Builder": {
+            "required": [
+                "name",
+                "description",
+                "location"
+            ],
+            "properties": {
+                "name": {
+                    "description": "Builder name",
+                    "type": "string",
+                    "example": "Jesse James"
+                },
+                "description": {
+                    "description": "Famous Motorcycle builder from Texas",
+                    "type": "string",
+                    "example": "Austin Speed Shop"
+                },
+                "location": {
+                    "description": "Texas/USA",
+                    "type": "string",
+                    "example": "Austin, Texas"
+                }
+            }
+        },
+        "Garage": {
+            "required": [
+                "name",
+                "custumer_level"
+            ],
+            "properties": {
+                "name": {
+                    "description": "Jhonny Garage",
+                    "type": "string",
+                    "example": "Exhaust"
+                },
+                "customer_level": {
+                    "description": "Whats the garage level",
+                    "type": "integer",
+                    "example": "10"
+                }
+            }
+        },
+        "Item": {
+            "required": [
+                "type",
+                "name",
+                "company",
+                "bike_id"
+            ],
+            "properties": {
+                "type": {
+                    "description": "Item Type",
+                    "type": "string",
+                    "example": "Exhaust"
+                },
+                "name": {
+                    "description": "Item name",
+                    "type": "string",
+                    "example": "2 into 1 Exhaust"
+                },
+                "company": {
+                    "description": "Produced by: some company",
+                    "type": "string",
+                    "example": "Vance and Hines"
+                },
+                "bike_id": {
+                    "description": "Association with: bike_id",
+                    "type": "string",
+                    "example": "1"
+                }
+            }
+        },
+        "Rating": {
+            "required": [
+                "bike_id",
+                "user_id",
+                "rating"
+            ],
+            "properties": {
+                "biker_id": {
+                    "description": "Bike id",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "user_id": {
+                    "description": "User id",
+                    "type": "integer",
+                    "example": "2"
+                },
+                "rating": {
+                    "description": "Vote by rating",
+                    "type": "integer",
+                    "example": "10"
+                }
+            }
+        },
+        "User": {
+            "required": [
+                "name",
+                "email",
+                "password"
+            ],
+            "properties": {
+                "name": {
+                    "description": "User name",
+                    "type": "string",
+                    "example": "John Conor"
+                },
+                "email": {
+                    "description": "Email Address",
+                    "type": "string",
+                    "example": "john.conor@terminator.com"
+                },
+                "password": {
+                    "description": "A very secure password",
+                    "type": "string",
+                    "example": "123456"
+                }
+            }
+        }
+    }
+}

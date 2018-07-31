@@ -1,0 +1,33 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" [routerLink]="['/']" (click)="setTitle('Custom Bikes Garage')">Custom Bikes Garage</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/bikes']" routerLinkActive="active" (click)="setTitle('Bikes')">Bikes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/builders']" routerLinkActive="active" (click)="setTitle('Builders')">Builders</a>
+        </li>
+        <li *ngIf="!auth.isAuthenticated()" class="nav-item">
+          <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active" (click)="setTitle('Login')">Login</a>
+        </li>
+        <li *ngIf="!auth.isAuthenticated()" class="nav-item">
+          <a class="nav-link" [routerLink]="['/register']" routerLinkActive="active" (click)="setTitle('Register')">Register</a>
+        </li>
+        <li *ngIf="auth.isAuthenticated()" class="nav-item">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-secondary" id="dropdownBasic1" ngbDropdownToggle>{{ auth.currentUser?.name }}</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button class="dropdown-item" (click)="onLogout();">Logout</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

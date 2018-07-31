@@ -1,0 +1,39 @@
+<main role="main">
+  <div class="py-5 bg-light">
+    <div class="container">
+      <form>
+        <div class="form-group row">
+          <label for="search" class="col-sm-2 col-form-label">Bike List</label>
+          <div class="col-sm-8">
+            <input [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}" placeholder="buscar" type="text" class="form-control"
+              id="search" placeholder="Search">
+          </div>
+          <div class="col-sm-2">
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-primary" id="dropdownBasicFilter" ngbDropdownToggle>Filter</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasicFilter">
+                <button class="dropdown-item">Year</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div *ngIf="isLoading" class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let bike of bikes | bikeSearch: searchText ">
+          <div class="card mb-4 box-shadow">
+            <img class="card-img-top" src="{{ bike.picture }}" alt="{{ bike.model }}">
+            <div class="card-body">
+              <p>{{ bike.model }} | {{ bike.year }}</p>
+              <p class="card-text">{{ bike.mods }}</p>
+              <a routerLink="/bikes/{{ bike.id }}" class="card-link">Vote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
