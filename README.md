@@ -11,7 +11,7 @@ Angular, considered as one of the most popular and powerful frontend frameworks,
 This book gives you practical knowledge of building modern full-stack web apps from scratch using Angular with a Laravel Restful back end. The book begins with a thorough introduction to Laravel and Angular and its core concepts like custom errors messages, components, routers, and Angular-cli, with each concept being explained first, and then put into practice in the case-study project.
 With the basics covered, you will learn how sophisticated UI features can be added using NgBootstrao and a component-based architecture. You will learn to extend and customize variables from Bootstrap CSS framework.
 
-This book covers the following exciting features: <First 5 What you'll learn points>
+This book covers the following exciting features: 
 * Explore the core features of Angular 6 to create sophisticated user interfaces
 * Use Laravel 5 to its full extent to create a versatile backend layer based on RESTful APIs
 * Configure a web application in order to accept user-defined data and persist it into the database using server-side APIs
