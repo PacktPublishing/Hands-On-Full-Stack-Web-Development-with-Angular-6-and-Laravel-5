@@ -151,10 +151,12 @@ a code editor to see and edit this kind of file, we strong recommend the use of 
    npm start
    ```
    3. Go to http://localhost:4200/
+   
 ### Chapter 07, 08, 09:
-   In this chapter you must conbine instruction for back-end chapters (01, 04, 05, 06, 10, 11)
-   with front-end chapters (01, 03). So here is the step by step;
-   Edit .env.example to: .env.
+
+In this chapter you must conbine instruction for back-end chapters (01, 04, 05, 06, 10, 11)
+with front-end chapters (01, 03). So here is the step by step;
+Edit .env.example to: .env.
       Important Note: on some operating systems .dot files are hidden by default, so you need
       a code editor to see and edit this kind of file, we strong recommend the use of VS.code.
       1. Open your terminal inside the chapter folder and type the following command
