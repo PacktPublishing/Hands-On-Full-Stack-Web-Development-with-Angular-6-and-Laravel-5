@@ -81,15 +81,20 @@ Edit .env.example to: .env .
 Important Note: on some operating systems .dot files are hidden by default, so you need
 a code editor to see and edit this kind of file, we strong recommend the use of VS.code.
    1. Open your terminal inside the chapter folder and type the following command
-      on your Terminal: cp .env.example .env.
+      on your Terminal: 
+      ```
+      cp .env.example .env
+      ```
    2. Change the .env database configuration using the docker-compose.yml MySql
       configuration as follow:
+      ```
        DB_CONNECTION=mysql
        DB_HOST=mysql
        DB_PORT=3306
        DB_DATABASE=chapter-04 # Note here you need to use the right chapter number
        DB_USERNAME=chapter-04
        DB_PASSWORD=123456
+      ```
    3. Open your Terminal window inside the project folder and type the following
       command: docker-compose up -d to start all Docker containers, this should
       take some minutes do download and build the images.
