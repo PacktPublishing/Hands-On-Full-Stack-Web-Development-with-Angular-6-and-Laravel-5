@@ -115,47 +115,85 @@ a code editor to see and edit this kind of file, we strong recommend the use of 
       
 ## Special instructions for some chapters:
 ### Chapter 01:
-    We mention some alternatives as: Mamp, Xamp, Webserver as a web server
-    but we recommend the use of Docker.
+   We mention some alternatives as: Mamp, Xamp, Webserver as a web server
+   but we recommend the use of Docker.
 ### Chapter 02:
-    Open your terminal inside the chapter folder and type the following command: 
-    npm install.
+   Open your terminal inside the chapter folder and type the following command: 
+    ```
+     npm install
+    ```
 ### Chapter 03:
-    1. Open your terminal inside the chapter folder and type the folloing
-       command: npm install.
-    2. Type on your terminal: npm start.
-    3. Go to http://localhost:4200/
+   1. Open your terminal inside the chapter folder and type the folloing
+       command: 
+       ```
+       npm install
+       ```
+   2. Type on your terminal: 
+   ```
+   npm start
+   ```
+   3. Go to http://localhost:4200/
 ### Chapter 07, 08, 09:
-    In this chapter you must conbine instruction for back-end chapters (01, 04, 05, 06, 10, 11)
-    with front-end chapters (01, 03). So here is the step by step;
-    Edit .env.example to: .env.
-       Important Note: on some operating systems .dot files are hidden by default, so you need
-       a code editor to see and edit this kind of file, we strong recommend the use of VS.code.
-       1. Open your terminal inside the chapter folder and type the following command
-          on your Terminal: cp .env.example .env.
-       2. Change the .env database configuration using the docker-compose.yml MySql
+   In this chapter you must conbine instruction for back-end chapters (01, 04, 05, 06, 10, 11)
+   with front-end chapters (01, 03). So here is the step by step;
+   Edit .env.example to: .env.
+      Important Note: on some operating systems .dot files are hidden by default, so you need
+      a code editor to see and edit this kind of file, we strong recommend the use of VS.code.
+      1. Open your terminal inside the chapter folder and type the following command
+          on your Terminal: 
+          ```
+          cp .env.example .env
+          ```
+      2. Change the .env database configuration using the docker-compose.yml MySql
           configuration as follow:
+          ```
           DB_CONNECTION=mysql
           DB_HOST=mysql
           DB_PORT=3306
           DB_DATABASE=chapter-04 # Note here you need to use the right chapter number
           DB_USERNAME=chapter-04
           DB_PASSWORD=123456
+          ```
        3. Open your Terminal window inside the project folder and type the following
-          command: docker-compose up -d to start all Docker containers, this should
+          command: 
+          ```
+          docker-compose up -d 
+          ```
+          to start all Docker containers, this should
           take some minutes do download and build the images.
-       4. Type the following command: docker-compose exec php-fpm bash to access
-          container bash.
-       5. Inside the container bash, type the following command: composer install, this
-          command may take a few minutes to download all the project dependencies,
+       4. Type the following command: 
+       ```
+          docker-compose exec php-fpm bash 
+       ```
+          to access container bash.
+       5. Inside the container bash, type the following command: 
+       ``` 
+          composer install
+      ```
+          this command may take a few minutes to download all the project dependencies,
           depending on your internet connection.
-       6. Run php artisan key:generate
-       7. Run php artisan migrate
-       8. Run php artisan db:seed
+       6. Run 
+       ```
+       php artisan key:generate
+       ```
+       7. Run 
+       ```
+       php artisan migrate
+       ```
+       8. Run 
+       ```
+       php artisan db:seed
+       ```
           Open your terminal inside chapter/Client folder and type the following commands:
        9. Open your terminal inside the chapter folder and type the folloing
-          command: npm install.
-      10. Type on your terminal: npm start.
+          command: 
+        ```
+          npm install
+        ```
+      10. Type on your terminal:
+      ```
+          npm start
+      ```    
           Also it is very important follow the chapters instructions for each chapter
 
 
