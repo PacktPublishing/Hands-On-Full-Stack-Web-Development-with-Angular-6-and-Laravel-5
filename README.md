@@ -96,16 +96,34 @@ a code editor to see and edit this kind of file, we strong recommend the use of 
        DB_PASSWORD=123456
       ```
    3. Open your Terminal window inside the project folder and type the following
-      command: docker-compose up -d to start all Docker containers, this should
-      take some minutes do download and build the images.
-   4. Type the following command: docker-compose exec php-fpm bash to access
-      container bash.
-   5. Inside the container bash, type the following command: composer install,
+      command: 
+      ```
+      docker-compose up -d to start 
+      ``` 
+      all Docker containers, this should take some minutes do download and build the images.
+   4. Type the following command: 
+      ```
+      docker-compose exec php-fpm bash 
+      ```
+      to access container bash.
+   5. Inside the container bash, type the following command: 
+    ``` 
+      composer install
+    ```
       this command may take a few minutes to download all the project dependencies,
       depending on your internet connection.
-   6. Run php artisan key:generate
-   7. Run php artisan migrate
-   8. Run php artisan db:seed
+   6. Run 
+     ```
+      php artisan key:generate
+    ```
+   7. Run 
+     ```
+      php artisan migrate
+     ```
+   8. Run 
+     ```
+      php artisan db:seed
+     ```
       Congratulations now we have everything we need to see the application running.
       Open your default browser and go to http://localhost:8081. and we can see the Laravel welcome
       screen.
