@@ -165,7 +165,7 @@ Important Note: on some operating systems .dot files are hidden by default, so y
           ```
           cp .env.example .env
           ```
-      2. Change the .env database configuration using the docker-compose.yml MySql
+   2. Change the .env database configuration using the docker-compose.yml MySql
           configuration as follow:
           ```
           DB_CONNECTION=mysql
@@ -175,47 +175,46 @@ Important Note: on some operating systems .dot files are hidden by default, so y
           DB_USERNAME=chapter-04
           DB_PASSWORD=123456
           ```
-       3. Open your Terminal window inside the project folder and type the following
+   3. Open your Terminal window inside the project folder and type the following
           command: 
           ```
           docker-compose up -d 
           ```
           to start all Docker containers, this should
           take some minutes do download and build the images.
-       4. Type the following command: 
+   4. Type the following command: 
        ```
           docker-compose exec php-fpm bash 
        ```
           to access container bash.
-       5. Inside the container bash, type the following command: 
+   5. Inside the container bash, type the following command: 
        ``` 
           composer install
       ```
           this command may take a few minutes to download all the project dependencies,
           depending on your internet connection.
-       6. Run 
+   6. Run 
        ```
        php artisan key:generate
        ```
-       7. Run 
+   7. Run 
        ```
        php artisan migrate
        ```
-       8. Run 
+   8. Run 
        ```
        php artisan db:seed
        ```
-          Open your terminal inside chapter/Client folder and type the following commands:
-       9. Open your terminal inside the chapter folder and type the folloing
-          command: 
+   9. Open your terminal inside chapter/Client folder and type the following commands:
+      Open your terminal inside the chapter folder and type the following command: 
         ```
           npm install
         ```
-      10. Type on your terminal:
+  10. Type on your terminal:
       ```
           npm start
       ```    
-          Also it is very important follow the chapters instructions for each chapter
+         Also it is very important follow the chapters instructions for each chapter
 
 
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://www.packtpub.com/sites/default/files/downloads/HandsOnFullStackWebDevelopmentwithAngular6andLaravel5_ColorImages.pdf).
