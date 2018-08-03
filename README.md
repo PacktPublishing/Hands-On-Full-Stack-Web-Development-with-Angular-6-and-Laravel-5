@@ -107,23 +107,23 @@ a code editor to see and edit this kind of file, we strong recommend the use of 
       ```
       to access container bash.
    5. Inside the container bash, type the following command: 
-    ``` 
+      ``` 
       composer install
-    ```
+      ```
       this command may take a few minutes to download all the project dependencies,
       depending on your internet connection.
    6. Run 
-     ```
+      ```
       php artisan key:generate
-    ```
+      ```
    7. Run 
-     ```
+      ```
       php artisan migrate
-     ```
+      ```
    8. Run 
-     ```
+      ```
       php artisan db:seed
-     ```
+      ```
       Congratulations now we have everything we need to see the application running.
       Open your default browser and go to http://localhost:8081. and we can see the Laravel welcome
       screen.
@@ -147,9 +147,9 @@ a code editor to see and edit this kind of file, we strong recommend the use of 
        npm install
        ```
    2. Type on your terminal: 
-   ```
-   npm start
-   ```
+       ```
+       npm start
+       ```
    3. Go to http://localhost:4200/
    
 ### Chapter 07, 08, 09:
