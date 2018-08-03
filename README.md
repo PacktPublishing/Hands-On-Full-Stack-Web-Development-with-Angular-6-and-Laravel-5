@@ -51,170 +51,100 @@ With the following software and hardware list you can run all code files present
 | 4        | Workbench                           | Windows, Mac OS X, and Linux (Any) |
 
 
-For the backend development you must have PHP, Composer and MySQL.
+## Development environment
+**All chapters and examples are based on Docker and Docker-compose**.
 
-All chapters and examples are based on Docker and Docker-compose.
-1. Docker:
-   1. Go to https://docs.docker.com/install/.
-   2. Choose your platform and follow the installation steps.
-   3. Start Docker.
-2. VS Code:
-   1. Go to the https://code.visualstudio.com/Download
-   2. Choose your platform and follow the installation steps.
-   3. Follow the installation steps for your platform.
-3. MySQL Workbench:
-   1. Go to https://dev.mysql.com/downloads/workbench/
-   2. Choose your platform and follow the installation steps.
-4. Node.js:
-   1. Go to https://nodejs.org/en/
-   2. Choose your platform and follow the installation steps.
-   
-Don't worry about the next steps after installation, each chapter have the basic steps to get
-the environment working properly.
-After download the individual chapters from repository, we need to take a few steps before
-running our application.
-Here is the steps (Remember you must have all the softwares installed on your machine
-mentioned on Software list).
+- Docker:
+  * Go to https://docs.docker.com/install/.
+  * Choose your platform and follow the installation steps.
+  * Start Docker.
+- VS Code:
+  * Go to the https://code.visualstudio.com/Download
+  * Choose your platform and follow the installation steps.
+  * Follow the installation steps for your platform.
+- MySQL Workbench:
+  * Go to https://dev.mysql.com/downloads/workbench/
+  * Choose your platform and follow the installation steps.
+- Node.js:
+  * Go to https://nodejs.org/en/
+  * Choose your platform and follow the installation steps.
 
-### Installation process for chapters: 01, 04, 05, 06, 10, 11.
-Edit .env.example to: .env .
-Important Note: on some operating systems .dot files are hidden by default, so you need
-a code editor to see and edit this kind of file, we strong recommend the use of VS.code.
-   1. Open your terminal inside the chapter folder and type the following command
-      on your Terminal: 
-      ```
-      cp .env.example .env
-      ```
-   2. Change the .env database configuration using the docker-compose.yml MySql
-      configuration as follow:
-      ```
-       DB_CONNECTION=mysql
-       DB_HOST=mysql
-       DB_PORT=3306
-       DB_DATABASE=chapter-04 # Note here you need to use the right chapter number
-       DB_USERNAME=chapter-04
-       DB_PASSWORD=123456
-      ```
-   3. Open your Terminal window inside the project folder and type the following
-      command: 
-      ```
-      docker-compose up -d to start 
-      ``` 
-      all Docker containers, this should take some minutes do download and build the images.
-   4. Type the following command: 
-      ```
-      docker-compose exec php-fpm bash 
-      ```
-      to access container bash.
-   5. Inside the container bash, type the following command: 
-      ``` 
-      composer install
-      ```
-      this command may take a few minutes to download all the project dependencies,
-      depending on your internet connection.
-   6. Run 
-      ```
-      php artisan key:generate
-      ```
-   7. Run 
-      ```
-      php artisan migrate
-      ```
-   8. Run 
-      ```
-      php artisan db:seed
-      ```
-      Congratulations now we have everything we need to see the application running.
-      Open your default browser and go to http://localhost:8081. and we can see the Laravel welcome
-      screen.
-      
-      Important note: Some chapter the url must be different. We advise you to use the individual
-      instructions in each chapter to have access to the correct urls.
-      
-## Special instructions for some chapters:
-### Chapter 01:
-   We mention some alternatives as: Mamp, Xamp, Webserver as a web server
-   but we recommend the use of Docker.
-### Chapter 02:
-   Open your terminal inside the chapter folder and type the following command: 
+## Using the sample code
+
+After download the individual chapters from repository, we need to take a few steps before running our application.
+
+Here is the steps (Remember you must have all the softwares installed on your machine mentioned on Software list).
+
+Installation process for chapters: 01, 04, 05, 06, 10, 11.
+
+1. Edit `.env.example` to: `.env` if you can't see the `.env`.
+**Important Note: on some operating systems `.dot` files are hidden by default**,
+so you need a code editor to see and edit this kind of file, we strong recommend the use of VS.code. Open your terminal inside the chapter folder and type the following command on your Terminal: `cp .env.example .env`.
+2. Change the `.env` database configuration using the `docker-compose.yml` MySql configuration as follow:
     ```
-     npm install
+      DB_CONNECTION=mysql
+      DB_HOST=mysql
+      DB_PORT=3306
+      DB_DATABASE=chapter-04 # Note here you need to use the right chapter number
+      DB_USERNAME=chapter-04
+      DB_PASSWORD=123456
+      ```
+3. Open your Terminal window inside the project folder and type the following command: `docker-compose up -d` to start all **Docker containers**, this should take some minutes do download and build the images.
+4. Type the following command: `docker-compose exec php-fpm bash` to access container **bash**.
+5. Inside the container bash, type the following command: `composer install`, this command may take a few minutes to download all the project dependencies, depending on your internet connection.
+6. Run `php artisan key:generate`
+7. Run `php artisan migrate`
+8. Run `php artisan db:seed`
+
+**Congratulations** now we have everything we need to see the application running.
+
+Open your default browser and go to http://localhost:8081. and we can see the Laravel welcome screen.
+
+---
+**Important note: On some chapters the url must be different. We advise you to use the individual instructions in each chapter to have access to the correct urls.**
+**if you are on windows, use the IP address generated by Docker-tools-cmd**
+
+---
+
+### Special instructions for some chapters
+
+**chapter 02**:
+Open your terminal inside the chapter folder and type the folloing command: `npm install`.
+
+**chapter 03**:
+1. Open your terminal inside the chapter folder and type the folloing command: `npm install`.
+2. Type on your terminal: `npm start`.
+3. Go to http://localhost:4200/
+
+**chapter 07**:
+
+In this chapter you must conbine instruction for back-end chapters (01, 04, 05, 06, 10, 11) with front-end chapters (01, 03). So here is the step by step;
+
+1. Edit `.env.example` to: `.env` if you can't see the `.env`.
+**Important Note: on some operating systems `.dot` files are hidden by default**,
+so you need a code editor to see and edit this kind of file, we strong recommend the use of VS.code. Open your terminal inside the chapter folder and type the following command on your Terminal: `cp .env.example .env`.
+2. Change the `.env` database configuration using the `docker-compose.yml` MySql configuration as follow:
     ```
-### Chapter 03:
-   1. Open your terminal inside the chapter folder and type the folloing
-       command: 
-       ```
-       npm install
-       ```
-   2. Type on your terminal: 
-       ```
-       npm start
-       ```
-   3. Go to http://localhost:4200/
-   
-### Chapter 07, 08, 09:
-
-In this chapter you must conbine instruction for back-end chapters (01, 04, 05, 06, 10, 11)
-with front-end chapters (01, 03). So here is the step by step;
-Edit .env.example to: .env.
-
-Important Note: on some operating systems .dot files are hidden by default, so you need a code editor to see and edit this kind of file, we strong recommend the use of VS.code.
-      
-   1. Open your terminal inside the chapter folder and type the following command
-          on your Terminal: 
-          ```
-          cp .env.example .env
-          ```
-   2. Change the .env database configuration using the docker-compose.yml MySql
-          configuration as follow:
-          ```
-          DB_CONNECTION=mysql
-          DB_HOST=mysql
-          DB_PORT=3306
-          DB_DATABASE=chapter-04 # Note here you need to use the right chapter number
-          DB_USERNAME=chapter-04
-          DB_PASSWORD=123456
-          ```
-   3. Open your Terminal window inside the project folder and type the following
-          command: 
-          ```
-          docker-compose up -d 
-          ```
-          to start all Docker containers, this should
-          take some minutes do download and build the images.
-   4. Type the following command: 
-       ```
-          docker-compose exec php-fpm bash 
-       ```
-          to access container bash.
-   5. Inside the container bash, type the following command: 
-       ``` 
-          composer install
+      DB_CONNECTION=mysql
+      DB_HOST=mysql
+      DB_PORT=3306
+      DB_DATABASE=chapter-04 # Note here you need to use the right chapter number
+      DB_USERNAME=chapter-04
+      DB_PASSWORD=123456
       ```
-          this command may take a few minutes to download all the project dependencies,
-          depending on your internet connection.
-   6. Run 
-       ```
-       php artisan key:generate
-       ```
-   7. Run 
-       ```
-       php artisan migrate
-       ```
-   8. Run 
-       ```
-       php artisan db:seed
-       ```
-   9. Open your terminal inside chapter/Client folder and type the following commands:
-      Open your terminal inside the chapter folder and type the following command: 
-        ```
-          npm install
-        ```
-  10. Type on your terminal:
-      ```
-          npm start
-      ```    
-         Also it is very important follow the chapters instructions for each chapter
+3. Open your Terminal window inside the project folder and type the following command: `docker-compose up -d` to start all **Docker containers**, this should take some minutes do download and build the images.
+4. Type the following command: `docker-compose exec php-fpm bash` to access container **bash**.
+5. Inside the container bash, type the following command: `composer install`, this command may take a few minutes to download all the project dependencies, depending on your internet connection.
+6. Run `php artisan key:generate`
+7. Run `php artisan migrate`
+8. Run `php artisan db:seed`
+
+Open your terminal inside `chapter/Client` folder and type the following commands:
+
+9. Open your terminal inside the chapter folder and type the folloing command: `npm install`.
+10. Type on your terminal: `npm start`.
+
+---
 
 
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://www.packtpub.com/sites/default/files/downloads/HandsOnFullStackWebDevelopmentwithAngular6andLaravel5_ColorImages.pdf).
