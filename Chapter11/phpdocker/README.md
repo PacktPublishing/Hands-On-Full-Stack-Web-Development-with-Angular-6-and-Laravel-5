@@ -56,26 +56,3 @@ It's hard to avoid file permission issues when fiddling about with containers du
 
   * Run composer outside of the php container, as doing so would install all your dependencies owned by `root` within your vendor folder.
   * Run commands (ie Symfony's console, or Laravel's artisan) straight inside of your container. You can easily open a shell as described above and do your thing from there.
-
-# Docker Useful commands:
-
-  docker stop $(docker ps -a -q)
-  docker rm $(docker ps -a -q)
-
-  docker rmi $(docker images -q)
-
-# Eloquent ORM
-
-The Eloquent ORM provides an ActiveRecord implementation to work with your database. This means that each model you create in your MVC structure corresponds to a table in your database.
-
-A Bear model will correspond to a bears table in your database. Since we have convention when creating our models and database tables, we can easily call data from our database.
-
-For example, to get all bears from a Bear model, all you would do is Bear::all(). Using this function would query the database and generate the proper SQL command. Here are some quick examples:
-
-Description	Function
-Find all bears	Bear::all()
-Find a record	Bear::find(id)
-Delete a record	Bear::delete(id)
-
-https://scotch.io/tutorials/a-guide-to-using-eloquent-orm-in-laravel
-https://scotch.io/@neo/getting-started-with-laravel-passport

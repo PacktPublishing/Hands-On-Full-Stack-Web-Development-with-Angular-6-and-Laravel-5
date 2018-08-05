@@ -160,8 +160,10 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
 
 
 ## Other books by the authors
-* [AngularJS Directives Cookbook](https://www.packtpub.com/web-development/angularjs-directives-cookbook?utm_source=GitHub&utm_medium=repository&utm_campaign=9781784395896)
-* [Learning Single-page Web Application Development](https://www.packtpub.com/web-development/learning-single-page-web-application-development?utm_source=GitHub&utm_medium=repository&utm_campaign=9781783552092)
+* <a href="http://www.packtpub.com/html5-responsive-table-design-how-to/book" target="_blank">Instant HTML5 Responsive Table Design</a>
+* <a href="https://www.packtpub.com/web-development/learning-single-page-web-application-development?utm_source=GitHub&utm_medium=repository&utm_campaign=9781783552092" target="_blank">Learning Single-page Web Application Development</a>
+* <a href="https://www.packtpub.com/web-development/angularjs-directives-cookbook?utm_source=GitHub&utm_medium=repository&utm_campaign=9781784395896" target="_blank">AngularJS Directives Cookbook</a>
+* <a href="https://www.packtpub.com/web-development/nodejs-6x-blueprints" target="_blank">Node.JS 6.x Blueprints</a>
 
 ### Suggestions and Feedback
 [Click here](https://docs.google.com/forms/d/e/1FAIpQLSdy7dATC6QmEL81FIUuymZ0Wy9vH1jHkvpY57OiMeKGqib_Ow/viewform) if you have any feedback or suggestions.
