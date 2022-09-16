@@ -32,7 +32,7 @@
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26",
     "@ng-bootstrap/ng-bootstrap": "^2.0.0-alpha.0",
-    "bootstrap": "^4.0.0"
+    "bootstrap": "^4.3.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.0",
